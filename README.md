@@ -2,7 +2,7 @@
 
 # Description
 
-In this profolio, we will look at the different threat hunting scenarios that I have created.
+A hands-on portfolio showcasing detection engineering, and automation for proactive threat hunting.
 
 ---
 
