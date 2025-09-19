@@ -104,6 +104,9 @@ Although the device was internet-facing, there was no indication of any brute fo
 
 Relevant MITRE ATT&CK TTPs:
 
+![mitre-att-ck](https://github.com/user-attachments/assets/5abbd09a-e8ac-4fd5-a29c-5394ebab2a81)
+
+
 Scenario 1: Devices Exposed to the Internet (UPDATE)
 
 - **Exposed internet-facing asset** → [T1595.002: Active Scanning - Vulnerability Scanning]  
@@ -189,6 +192,9 @@ The malware scan produced no results, so, out of caution, we kept the device iso
 --
 
 MITRE ATT&CK Framework Related TTPs:
+
+![mitre-att-ck](https://github.com/user-attachments/assets/ec822e31-ebee-4748-b40f-15fb318e8fe3)
+
 
 T1046 — Network Service Discovery (Port Scanning)
 T1018 — Remote System Discovery
