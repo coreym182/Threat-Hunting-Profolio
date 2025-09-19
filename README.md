@@ -145,4 +145,75 @@ DeviceNetworkEvents
 <img width="468" height="240" alt="Picture5" src="https://github.com/user-attachments/assets/0acaccb9-9f81-4b43-8f2f-15ca2b561dd5" />
 
 
+
 After observing a Failed Connection Request from our suspicious host (Remote IP: 10.0.0.5), in chronological order, I noticed a port scan was taking place due to the sequential order of the ports. There were several port scans being conducted. 
+
+
+I inspected one of the records from the logs.
+
+KQL code used to conduct the search
+
+let VMName = "corey-machine-v";
+let specificTime = datetime(2024-10-18T04:09:37.5180794Z);
+DeviceProcessEvents
+| where Timestamp between ((specificTime - 10m) .. (specificTime + 10m))
+| where DeviceName == VMName
+| order by Timestamp desc
+| project Timestamp, FileName, InitiatingProcessCommandLine
+
+
+<img width="263" height="368" alt="Picture6" src="https://github.com/user-attachments/assets/b199bb71-bff5-40c1-98c4-43fff0df53f8" />
+
+--
+
+I logged into the client’s computer and observed the PowerShell script that was used to conduct a port scan.
+
+<img width="468" height="327" alt="Picture7" src="https://github.com/user-attachments/assets/e9e8ce98-f2a8-4fae-a6a0-3b94b1072651" />
+
+--
+
+We observed that this port scan script was launched by the “system” account. This is not expected behavior and is not something that the admins set up. So I isolated the device and ran a malware scan. 
+
+--
+
+The malware scan produced no results, so, out of caution, we kept the device isolated and submitted a ticket to have it reimaged/rebuilt.
+
+--
+
+MITRE ATT&CK Framework Related TTPs:
+
+T1046 — Network Service Discovery (Port Scanning)
+T1018 — Remote System Discovery
+T1059.001 — Command and Scripting Interpreter: PowerShell
+T1078 — Valid Accounts (SYSTEM account abuse)
+T1548.002 — Abuse Elevation Control Mechanism: Bypass UAC
+T1036 — Masquerading (possible)
+T1562 — Impair Defenses (possible/antivirus evasion)
+
+
+Response
+
+Goal: Mitigate any confirmed threats.
+
+Activity:
+	•	Containment
+	•	Isolate the affected host (corey-machine-v) from the network (already performed).
+	•	Block suspicious IP addresses (e.g., 10.0.0.5 if confirmed malicious).
+	•	Eradication
+	•	Remove the malicious script (portscan.ps1).
+	•	Investigate how it was executed by the SYSTEM account (potential privilege escalation or misconfiguration).
+	•	Patch and update the system to eliminate known vulnerabilities.
+	•	Recovery
+	•	Reimage/rebuild the device to ensure a clean state (already submitted a ticket).
+	•	Rejoin the host to the domain/network after verifying it is clean.
+	•	Monitor network traffic closely post-recovery for reoccurrence.
+
+Can anything be done?
+✅ Yes. The following can be done to strengthen defenses:
+	•	Implement application whitelisting to prevent unauthorized PowerShell script execution.
+	•	Enable PowerShell logging and forward logs to SIEM for real-time detection.
+	•	Restrict SYSTEM account usage to legitimate processes only.
+	•	Deploy network segmentation to limit lateral movement attempts.
+	•	Conduct a threat hunt across other endpoints to ensure no further compromise exists.
+
+
