@@ -4,6 +4,8 @@
 
 A hands-on portfolio showcasing detection engineering, and automation for proactive threat hunting.
 
+<img width="2720" height="1536" alt="EMXN1y8qTQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBoza2xpbmcvZG93bmxvYWQvTWprd01qZzVNVEE0TXpBd09UYzVNVGN5TkRNNU1USTVNZz09 origin" src="https://github.com/user-attachments/assets/08fc3b00-6d31-4d86-ad63-7fccb459cd32" />
+
 ---
 
 # Technology Utilized
@@ -25,6 +27,9 @@ A hands-on portfolio showcasing detection engineering, and automation for proact
 # Scenario 1: Devices Exposed to the Internet (UPDATE)
 
 windows-target-1 is a server that has been internet-facing for several days. By being exposed to the internet, it is at risk of serveral types of cyberattacks including DDos, malware, data exflitration and others. I will check the logs to see if this server was exposed to the internet and for how long.
+
+
+<img width="2720" height="1536" alt="EMXN1y8qTQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBoza2xpbmcvZG93bmxvYWQvTWprd01qZzVORGswTlRBek5qRXhNVFUxTWprM01EZzNOZz09 origin" src="https://github.com/user-attachments/assets/0269a6df-76b5-4ee9-9dfa-aec1d52b8c45" />
 
 
 KQL code used to conduct the search
@@ -115,6 +120,9 @@ Notes:
 # Scenario 2: Sudden Network Slowdowns
 
 corey-machine-v was found to be failing connect with another host on the same network. 
+
+<img width="2720" height="1536" alt="EMXN1y8qTQoGdXBsb2FkEg55bGFiLXN0dW50LXNncBoza2xpbmcvZG93bmxvYWQvTWprd01qZzVOekF3TlRNM09USXhNVGsyT1RFMU9EWXlNZz09 origin" src="https://github.com/user-attachments/assets/776ae3bd-e65a-4a1d-8d33-d1f47f9da61b" />
+
 
 KQL code used to conduct the search
 
