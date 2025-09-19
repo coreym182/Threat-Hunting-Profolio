@@ -24,7 +24,7 @@ In this profolio, we will look at the different threat hunting scenarios that I 
 
 # Scenario 1: Devices Exposed to the Internet (UPDATE)
 
-windows-target-1 is a server that has been internet-facing for several days. By being exposed to the internet, it is at risk of serveral types of cyberattacks including DDos, malware, data exflitration and others. I will check the logs t see if this server was exposed to the internet and for how long.
+windows-target-1 is a server that has been internet-facing for several days. By being exposed to the internet, it is at risk of serveral types of cyberattacks including DDos, malware, data exflitration and others. I will check the logs to see if this server was exposed to the internet and for how long.
 
 
 KQL code used to conduct the search
